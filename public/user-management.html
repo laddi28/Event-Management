@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management</title>
+</head>
+<body>
+    <section id="user-management">
+        <h2>User Management</h2>
+        <form id="user-form">
+            <input type="text" id="user-name" placeholder="User Name" required>
+            <input type="email" id="user-email" placeholder="User Email" required>
+            <button type="submit">Add User</button>
+        </form>
+        <button onclick="loadUsers()">Load Users</button>
+        <ul id="user-list"></ul>
+    </section>
+
+    <script src="/js/admin.js"></script>
+
+    
+    
+</body>
+</html>
