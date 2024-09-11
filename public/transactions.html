@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Transactions</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>View Transactions</h1>
+
+    <!--Table for displaying transactions-->
+    <table border = "1" cellpadding="10" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Transaction ID</th>
+                <th>Date</th>
+                <th>Amount</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody id="transactionTable"></tbody>
+    </table>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", ()=>{
+            fatch("/transactions")
+            .then(response => response.json())
+            .then(transactionData =>{
+                const transactionTable = document.getElementById("transactionTable");
+
+                trannsactionData.forEach(txn=>{
+                    const row = document.createElement("tr");
+                    row.innerHTML = ` <td>$
+                        {txn.transactionId}</td>
+                        <td>$
+                            {new Date(txn.date).toLocalDateString()}</td>
+                        <td>$
+                            {txn.amount}</td>
+                        <td>$
+                            {txn.status}</td`;
+                        
+                            transactionTablee.appendChild(row);
+                });
+            })
+            .catch(err=>
+                console.error("Error fetching transactions:", err));
+        });
+    </script>
+    
+</body>
+</html>
